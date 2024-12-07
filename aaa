@@ -1097,8 +1097,8 @@ end
 function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePerformance, ConfigFolder, Theme)
     local ImprovePerformance = ImprovePerformance or false
     local HasCustom = false
-    local HubName = HubName or 'Kanistay HUB'
-    local GameName = GameName or 'Emergency Hamburg'
+    local HubName = Kanistay HUB or 'Kanistay HUB'
+    local GameName = Emergency Haburg or 'Emergency Hamburg'
     local Theme = Theme
     if not Theme then
         Theme = Themes.Default
