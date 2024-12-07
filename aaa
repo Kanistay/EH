@@ -1094,11 +1094,11 @@ function Library:GetConfigs()
     end
 end 
 
-function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePerformance, ConfigFolder, Theme)
+function Library:CreateWindow(KanistayHub, EmergencyHamburg, IntroText, IntroIcon, ImprovePerformance, ConfigFolder, Theme)
     local ImprovePerformance = ImprovePerformance or false
     local HasCustom = false
-    local HubName = Kanistay HUB or 'Kanistay HUB'
-    local GameName = Emergency Haburg or 'Emergency Hamburg'
+    local KanistayHUB = Kanistay HUB or 'Kanistay HUB'
+    local EmergencyHamburg = Emergency Haburg or 'Emergency Hamburg'
     local Theme = Theme
     if not Theme then
         Theme = Themes.Default
