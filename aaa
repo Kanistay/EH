@@ -3744,7 +3744,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                         BorderSizePixel = 0,
                         Position = UDim2.new(0, 377, 0, 8),
                         Size = UDim2.new(0, 25, 0, 25),
-                        Image = 'rbxassetid://3926305904',
+                        Image = 'rbxassetid://111073133971859',
                         ImageColor3 = Theme.SecondaryTextColor,
                         ImageRectOffset = Vector2.new(764, 124),
                         ImageRectSize = Vector2.new(36, 36)
