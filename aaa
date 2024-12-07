@@ -454,7 +454,7 @@ do
                 Parent = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder'),
                 BackgroundColor3 = Theme.PromptColor,
                 AnchorPoint = Vector2.new({0, 491}, {0, 129}),
-                Position = UDim2.new({0.5, -530}, {0.5, -225}),
+                Position = UDim2.new({0, 209}, {0, 155}),
                 BorderSizePixel = 0,
                 ZIndex = 101,
                 BackgroundTransparency = NotificationTransparency,
@@ -1157,7 +1157,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
             BackgroundColor3 = Theme.BackgroundColor,
             BorderSizePixel = 0,
             BackgroundTransparency = 1,
-            Position = UDim2.new(0, 595, 0, 150),
+            Position = UDim2.new(0, 209, 0, 155),
             Size = UDim2.new(0, 0, 0, 0)
         }, {
             Utility:Create('UICorner', {
