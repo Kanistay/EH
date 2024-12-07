@@ -453,7 +453,7 @@ do
                 Name = Title..'PromptFrame',
                 Parent = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder'),
                 BackgroundColor3 = Theme.PromptColor,
-                AnchorPoint = Vector2.new(0.5, 0.5),
+                AnchorPoint = Vector2.new({0, 491}, {0, 129}),
                 Position = UDim2.new({0.5, -530}, {0.5, -225}),
                 BorderSizePixel = 0,
                 ZIndex = 101,
