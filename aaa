@@ -10,7 +10,7 @@ local HttpService = game:GetService('HttpService')
 -- // Variables
 getgenv().kms = false
 local Ihatethisui = {}
-local UIName = 'Visual UI Library | .gg/puxxCphTnK'
+local UIName = 'Kanistay UI Services / discord.gg/kanistay'
 local Amount = 0
 local ConfigF
 local BreakAllLoops = false
@@ -279,12 +279,15 @@ do
             Frame.Position = UDim2.new(StartPosition.X.Scale, StartPosition.X.Offset + Delta.X, StartPosition.Y.Scale, StartPosition.Y.Offset + Delta.Y)
         end
         
+        -- Fare tıklama ve dokunma olayını işleme
         Frame.InputBegan:Connect(function(Input)
-            if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+            if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+                -- Fare veya dokunma başlatıldığında
                 Dragging = true
                 DragStart = Input.Position
                 StartPosition = Frame.Position
-        
+    
+                -- Tıklama veya dokunma sona erdiğinde
                 Input.Changed:Connect(function()
                     if Input.UserInputState == Enum.UserInputState.End then
                         Dragging = false
@@ -293,18 +296,21 @@ do
             end
         end)
         
+        -- Fare hareketi veya dokunma hareketini izleme
         Frame.InputChanged:Connect(function(Input)
-            if Input.UserInputType == Enum.UserInputType.MouseMovement then
+            if Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
                 DraggingInput = Input
             end
         end)
         
+        -- Fare veya dokunma hareketini güncelleme
         UserInputService.InputChanged:Connect(function(Input)
             if Input == DraggingInput and Dragging then
                 Update(Input)
             end
         end)
     end
+    
 
     function Utility:Create(_Instance, Properties, Children)
         local Object = Instance.new(_Instance)
