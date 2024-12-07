@@ -10,7 +10,7 @@ local HttpService = game:GetService('HttpService')
 -- // Variables
 getgenv().kms = false
 local Ihatethisui = {}
-local UIName = 'Kanistay UI Services / discord.gg/kanistay'
+local UIName = 'Visual UI Library | .gg/puxxCphTnK'
 local Amount = 0
 local ConfigF
 local BreakAllLoops = false
@@ -343,7 +343,7 @@ do
 
             if not CoreGui:FindFirstChild('Visual UI Library | .gg/puxxCphTnK | Notifications') then
                 Utility:Create('ScreenGui', {
-                    Name = 'Kanistay | .gg/kanistay | Notifications',
+                    Name = 'Visual UI Library | .gg/puxxCphTnK | Notifications',
                     Parent = CoreGui
                 })
             else
@@ -459,8 +459,8 @@ do
                 Name = Title..'PromptFrame',
                 Parent = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder'),
                 BackgroundColor3 = Theme.PromptColor,
-                AnchorPoint = Vector2.new({0, 491}, {0, 129}),
-                Position = UDim2.new({0, 209}, {0, 155}),
+                AnchorPoint = Vector2.new(0.5, 0.5),
+                Position = UDim2.new(0.5, 0, 0.5, 0),
                 BorderSizePixel = 0,
                 ZIndex = 101,
                 BackgroundTransparency = NotificationTransparency,
@@ -1097,8 +1097,8 @@ end
 function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePerformance, ConfigFolder, Theme)
     local ImprovePerformance = ImprovePerformance or false
     local HasCustom = false
-    local HubName = Kanistay HUB or 'Kanistay HUB'
-    local GameName = Emergency Haburg or 'Emergency Hamburg'
+    local HubName = HubName or 'UI Name'
+    local GameName = GameName or 'Game Name'
     local Theme = Theme
     if not Theme then
         Theme = Themes.Default
@@ -1163,11 +1163,11 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
             BackgroundColor3 = Theme.BackgroundColor,
             BorderSizePixel = 0,
             BackgroundTransparency = 1,
-            Position = UDim2.new(0, 209, 0, 155),
+            Position = UDim2.new(0, 595, 0, 150),
             Size = UDim2.new(0, 0, 0, 0)
         }, {
             Utility:Create('UICorner', {
-                CornerRadius = UDim.new(0, 10),
+                CornerRadius = UDim.new(0, 5),
                 Name = 'MainCorner'
             }),
             Utility:Create('TextLabel', {
@@ -1427,13 +1427,13 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
 
     HubNameObj.InputBegan:Connect(function(Input)
         if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Library:CreatePrompt('Text', 'Kanistay HUB', HubName, 'Close')
+            Library:CreatePrompt('Text', 'Hub Name', HubName, 'Close')
         end
     end)
 
     GameNameObj.InputBegan:Connect(function(Input)
         if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Library:CreatePrompt('Text', 'Emergency Hamburg', GameName, 'Close')
+            Library:CreatePrompt('Text', 'Game Name', GameName, 'Close')
         end
     end)
 
