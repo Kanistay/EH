@@ -343,7 +343,7 @@ do
 
             if not CoreGui:FindFirstChild('Visual UI Library | .gg/puxxCphTnK | Notifications') then
                 Utility:Create('ScreenGui', {
-                    Name = 'Visual UI Library | .gg/puxxCphTnK | Notifications',
+                    Name = 'Kanistay | .gg/kanistay | Notifications',
                     Parent = CoreGui
                 })
             else
@@ -1427,13 +1427,13 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
 
     HubNameObj.InputBegan:Connect(function(Input)
         if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Library:CreatePrompt('Text', 'Hub Name', HubName, 'Close')
+            Library:CreatePrompt('Text', 'Kanistay HUB', HubName, 'Close')
         end
     end)
 
     GameNameObj.InputBegan:Connect(function(Input)
         if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Library:CreatePrompt('Text', 'Game Name', GameName, 'Close')
+            Library:CreatePrompt('Text', 'Emergency Hamburg', GameName, 'Close')
         end
     end)
 
