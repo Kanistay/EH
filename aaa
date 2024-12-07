@@ -341,14 +341,14 @@ do
             local Text = Text or 'Text'
             local Duration = Duration or 5
 
-            if not CoreGui:FindFirstChild('Kanistay Scripting | .gg/kanistay | Notifications') then
+            if not CoreGui:FindFirstChild('Visual UI Library | .gg/puxxCphTnK | Notifications') then
                 Utility:Create('ScreenGui', {
-                    Name = 'Kanistay Scripting | .gg/kanistay | Notifications',
+                    Name = 'Visual UI Library | .gg/puxxCphTnK | Notifications',
                     Parent = CoreGui
                 })
             else
                 Utility:Create('Frame', {
-                    Parent = CoreGui:FindFirstChild('Kanistay Scripting | .gg/kanistay | Notifications'),
+                    Parent = CoreGui:FindFirstChild('Visual UI Library | .gg/puxxCphTnK | Notifications'),
                     Name = 'Notification'..tostring(Amount + 1),
                     BackgroundColor3 = Theme.BackgroundColor,
                     BorderSizePixel = 0,
@@ -404,7 +404,7 @@ do
                 })
 
                 Amount = Amount + 1
-                local Holder = CoreGui:FindFirstChild('Kanistay Scripting | .gg/kanistay | Notifications')['Notification'..tostring(Amount)]
+                local Holder = CoreGui:FindFirstChild('Visual UI Library | .gg/puxxCphTnK | Notifications')['Notification'..tostring(Amount)]
                 local TitleObj = Holder['NotificationTitle']
                 local TextObj = Holder['NotificationText']
                 local TextSize = TextService:GetTextSize(Text, 14, Enum.Font.Gotham, Vector2.new(300, math.huge))
@@ -962,7 +962,7 @@ function Library:ToggleUI()
 end
 
 function Library:SetTransparency(Transparency, NotificationBool)
-    local UI = CoreGui:WaitForChild('Kanistay Scripting | .gg/kanistay')
+    local UI = CoreGui:WaitForChild('Visual UI Library | .gg/puxxCphTnK')
     local Blacklist = {
         'UIPadding',
         'UICorner',
@@ -1094,11 +1094,11 @@ function Library:GetConfigs()
     end
 end 
 
-function Library:CreateWindow(Kanistay Hub, Emergency Hamburg, IntroText, IntroIcon, ImprovePerformance, ConfigFolder, Theme)
+function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePerformance, ConfigFolder, Theme)
     local ImprovePerformance = ImprovePerformance or false
     local HasCustom = false
-    local Kanistay Hub = Kanistay Hub or 'UI Name'
-    local Emergency Hamburg = Emergency Hamburg or 'Game Name'
+    local HubName = HubName or 'Kanistay HUB'
+    local GameName = GameName or 'Emergency Hamburg'
     local Theme = Theme
     if not Theme then
         Theme = Themes.Default
@@ -1167,7 +1167,7 @@ function Library:CreateWindow(Kanistay Hub, Emergency Hamburg, IntroText, IntroI
             Size = UDim2.new(0, 0, 0, 0)
         }, {
             Utility:Create('UICorner', {
-                CornerRadius = UDim.new(0, 5),
+                CornerRadius = UDim.new(0, 10),
                 Name = 'MainCorner'
             }),
             Utility:Create('TextLabel', {
@@ -1314,7 +1314,7 @@ function Library:CreateWindow(Kanistay Hub, Emergency Hamburg, IntroText, IntroI
             BorderSizePixel = 0,
             Size = UDim2.new(0, 170, 0, 20),
             Font = Enum.Font.Gotham,
-            Text = Kanistay Hub,
+            Text = HubName,
             TextColor3 = Theme.PrimaryTextColor,
             TextSize = 18,
             ZIndex = 2,
@@ -1326,21 +1326,21 @@ function Library:CreateWindow(Kanistay Hub, Emergency Hamburg, IntroText, IntroI
             })
         }), 
         Utility:Create('TextLabel', {
-            Name = 'Emergency HamburgText',
+            Name = 'GameNameText',
             BackgroundColor3 = Theme.SidebarColor,
             BackgroundTransparency = 1,
             Position = UDim2.new(0, 0, 0, 24),
             BorderSizePixel = 0,
             Size = UDim2.new(0, 170, 0, 20),
             Font = Enum.Font.Gotham,
-            Text = Emergency Hamburg,
+            Text = GameName,
             TextColor3 = Theme.SecondaryTextColor,
             TextSize = 16,
             ZIndex = 2,
             TextXAlignment = Enum.TextXAlignment.Left
         }, {
             Utility:Create('UIPadding', {
-                Name = 'Emergency HamburgTextPadding',
+                Name = 'GameNameTextPadding',
                 PaddingLeft = UDim.new(0, 7)
             })
         }),
@@ -1389,13 +1389,13 @@ function Library:CreateWindow(Kanistay Hub, Emergency Hamburg, IntroText, IntroI
     })
 
     local HubNameObj = Container.Main.Sidebar.HubNameText
-    local Emergency HamburgObj = Container.Main.Sidebar.Emergency HamburgText
+    local GameNameObj = Container.Main.Sidebar.GameNameText
     local TabButtonHolder = Container.Main.Sidebar.TabButtonHolder
     local TabButtonHolderListLayout = TabButtonHolder['TabButtonHolderListLayout']
     local PromptHolder = Container.Main.PromptHolder
 
     local HubNameTextSize = TextService:GetTextSize(HubNameObj.Text, 18, Enum.Font.Gotham, Vector2.new(410, math.huge))
-    local Emergency HamburgTextSize = TextService:GetTextSize(Emergency HamburgObj.Text, 16, Enum.Font.Gotham, Vector2.new(410, math.huge))
+    local GameNameTextSize = TextService:GetTextSize(GameNameObj.Text, 16, Enum.Font.Gotham, Vector2.new(410, math.huge))
 
     if HubNameTextSize.X >= 165 then
         local NewText = HubNameObj.Text
@@ -1411,29 +1411,29 @@ function Library:CreateWindow(Kanistay Hub, Emergency Hamburg, IntroText, IntroI
         HubNameObj.Text = NewText..'...'
     end
 
-    if Emergency HamburgTextSize.X >= 175 then
-        local NewText = Emergency HamburgObj.Text
+    if GameNameTextSize.X >= 175 then
+        local NewText = GameNameObj.Text
         local X = 0
         repeat 
             NewText = NewText:sub(0, -2)
-            local Emergency HamburgTextSize = TextService:GetTextSize(NewText, 18, Enum.Font.Gotham, Vector2.new(410, math.huge))
-            X = Emergency HamburgTextSize.X
+            local GameNameTextSize = TextService:GetTextSize(NewText, 18, Enum.Font.Gotham, Vector2.new(410, math.huge))
+            X = GameNameTextSize.X
         until X < 175
         for _ = 1, 2 do
             NewText = NewText:sub(0, -2)
         end
-        Emergency HamburgObj.Text = NewText..'...'
+        GameNameObj.Text = NewText..'...'
     end
 
     HubNameObj.InputBegan:Connect(function(Input)
         if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Library:CreatePrompt('Text', 'Hub Name', Kanistay Hub, 'Close')
+            Library:CreatePrompt('Text', 'Hub Name', HubName, 'Close')
         end
     end)
 
-    Emergency HamburgObj.InputBegan:Connect(function(Input)
+    GameNameObj.InputBegan:Connect(function(Input)
         if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Library:CreatePrompt('Text', 'Game Name', Emergency Hamburg, 'Close')
+            Library:CreatePrompt('Text', 'Game Name', GameName, 'Close')
         end
     end)
 
@@ -1459,8 +1459,8 @@ function Library:CreateWindow(Kanistay Hub, Emergency Hamburg, IntroText, IntroI
                         Utility:Tween(Container.Main.Sidebar.Filler3, {BackgroundColor3 = Theme.SidebarColor}, 0.25)
                         Utility:Tween(Container.Main.Sidebar.HubNameText, {BackgroundColor3 = Theme.SidebarColor}, 0.25)
                         Utility:Tween(Container.Main.Sidebar.HubNameText, {TextColor3 = Theme.PrimaryTextColor}, 0.25)
-                        Utility:Tween(Container.Main.Sidebar.Emergency HamburgText, {BackgroundColor3 = Theme.SidebarColor}, 0.25)
-                        Utility:Tween(Container.Main.Sidebar.Emergency HamburgText, {TextColor3 = Theme.SecondaryTextColor}, 0.25)
+                        Utility:Tween(Container.Main.Sidebar.GameNameText, {BackgroundColor3 = Theme.SidebarColor}, 0.25)
+                        Utility:Tween(Container.Main.Sidebar.GameNameText, {TextColor3 = Theme.SecondaryTextColor}, 0.25)
                         Utility:Tween(Container.Main.Sidebar.SidebarLine1, {BackgroundColor3 = Theme.UIStrokeColor}, 0.25)
                         Utility:Tween(Container.Main.Sidebar.SidebarLine2, {BackgroundColor3 = Theme.UIStrokeColor}, 0.25)
                         Utility:Tween(Container.Main.Sidebar.TabButtonHolder, {BackgroundColor3 = Theme.SidebarColor}, 0.25)
