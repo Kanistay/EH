@@ -474,7 +474,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	if WindowConfig.IntroEnabled == nil then
 		WindowConfig.IntroEnabled = true
 	end
-	WindowConfig.IntroText = WindowConfig.IntroText or "Orion Library"
+	WindowConfig.IntroText = WindowConfig.IntroText or "Kanistay Hub"
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
 	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://8834748103"
@@ -489,7 +489,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	end
 
 	local TabHolder = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 4), {
-		Size = UDim2.new(1, 0, 1, -50)
+		Size = UDim2.new(1, 0, 1, 0)
 	}), {
 		MakeElement("List"),
 		MakeElement("Padding", 8, 0, 0, 8)
@@ -526,63 +526,27 @@ function OrionLib:MakeWindow(WindowConfig)
 	})
 
 	local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
-		Size = UDim2.new(0, 150, 1, -50),
+		Size = UDim2.new(0, 150, 0.85, 0),
 		Position = UDim2.new(0, 0, 0, 50)
 	}), {
 		AddThemeObject(SetProps(MakeElement("Frame"), {
 			Size = UDim2.new(1, 0, 0, 10),
 			Position = UDim2.new(0, 0, 0, 0)
 		}), "Second"), 
+	
 		AddThemeObject(SetProps(MakeElement("Frame"), {
 			Size = UDim2.new(0, 10, 1, 0),
 			Position = UDim2.new(1, -10, 0, 0)
 		}), "Second"), 
+		
 		AddThemeObject(SetProps(MakeElement("Frame"), {
 			Size = UDim2.new(0, 1, 1, 0),
 			Position = UDim2.new(1, -1, 0, 0)
 		}), "Stroke"), 
+		
 		TabHolder,
-		SetChildren(SetProps(MakeElement("TFrame"), {
-			Size = UDim2.new(1, 0, 0, 50),
-			Position = UDim2.new(0, 0, 1, -50)
-		}), {
-			AddThemeObject(SetProps(MakeElement("Frame"), {
-				Size = UDim2.new(1, 0, 0, 1)
-			}), "Stroke"), 
-			AddThemeObject(SetChildren(SetProps(MakeElement("Frame"), {
-				AnchorPoint = Vector2.new(0, 0.5),
-				Size = UDim2.new(0, 32, 0, 32),
-				Position = UDim2.new(0, 10, 0.5, 0)
-			}), {
-				SetProps(MakeElement("Image", "https://www.roblox.com/headshot-thumbnail/image?userId=".. LocalPlayer.UserId .."&width=420&height=420&format=png"), {
-					Size = UDim2.new(1, 0, 1, 0)
-				}),
-				AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://4031889928"), {
-					Size = UDim2.new(1, 0, 1, 0),
-				}), "Second"),
-				MakeElement("Corner", 1)
-			}), "Divider"),
-			SetChildren(SetProps(MakeElement("TFrame"), {
-				AnchorPoint = Vector2.new(0, 0.5),
-				Size = UDim2.new(0, 32, 0, 32),
-				Position = UDim2.new(0, 10, 0.5, 0)
-			}), {
-				AddThemeObject(MakeElement("Stroke"), "Stroke"),
-				MakeElement("Corner", 1)
-			}),
-			AddThemeObject(SetProps(MakeElement("Label", "Kanistay", WindowConfig.HidePremium and 14 or 13), {
-				Size = UDim2.new(1, -60, 0, 13),
-				Position = WindowConfig.HidePremium and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
-				Font = Enum.Font.GothamBold,
-				ClipsDescendants = true
-			}), "Text"),
-			AddThemeObject(SetProps(MakeElement("Label", "", 12), {
-				Size = UDim2.new(1, -60, 0, 12),
-				Position = UDim2.new(0, 50, 1, -25),
-				Visible = not WindowConfig.HidePremium
-			}), "TextDark")
-		}),
 	}), "Second")
+	
 
 	local WindowName = AddThemeObject(SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		Size = UDim2.new(1, -30, 2, 0),
@@ -673,7 +637,7 @@ function OrionLib:MakeWindow(WindowConfig)
 			WindowTopBarLine.Visible = false
 			MinimizeBtn.Ico.Image = "rbxassetid://7072720870"
 
-			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, WindowName.TextBounds.X + 140, 0, 50)}):Play()
+			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, WindowName.TextBounds.X + -110, 0, 50)}):Play()
 			wait(0.1)
 			WindowStuff.Visible = false	
 		end
